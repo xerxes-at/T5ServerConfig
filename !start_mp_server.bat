@@ -17,6 +17,6 @@ echo Server "%name%" will load %cfg% and listen on port %port% UDP!
 echo To shut down the server close this window first!
 echo (%date%)  -  (%time%) %name% server start.
 :server
-start /wait /abovenormal t5m.exe -mp +set dedicated 2 +set net_port %port% +set fs_game "%mod%" +exec %cfg% +map %map%
+start /wait /abovenormal t5m.exe -mp -console +set dedicated 2 +set net_port %port% +set fs_game "%mod%" +exec %cfg% +map %map%
 echo (%date%)  -  (%time%) WARNING: %name% server closed or dropped... server restarts.
 goto server
