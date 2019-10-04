@@ -1,6 +1,6 @@
 @echo off
 ::name of the config file the server should use.
-set cfg=dedicated.cfg
+set cfg=server.cfg
 ::name of the server shown in the title of the cmd window
 set name=TDM 1
 ::Port used by the server
