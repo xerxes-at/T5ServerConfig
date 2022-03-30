@@ -1,22 +1,23 @@
 @echo off
-::name of the config file the server should use.
+::Paste the server key from https://platform.plutonium.pw/serverkeys here
+set key=placeServerKeyHere
+::Name of the config file the server should use. (default: dedicated.cfg)
 set cfg=server.cfg
-::name of the server shown in the title of the cmd window
+::Name of the server shown in the title of the cmd window. This will NOT bet shown ingame.
 set name=TDM 1
-::Port used by the server
+::Port used by the server (default: 28960)
 set port=28960
-::first map the server should run
-set map=mp_nuked
-::mod to load
-::set mod=mods/<ModNameHere>
-set mod=
+::Only change this when you don't want to keep the bat files in the game folder. MOST WON'T NEED TO EDIT THIS!
+set gamepath=%cd%
 
-title RektT5 - %name% - Server restarter
-echo Visit getrektby.us / Join the Discord (HqjQFCp) for NEWS and Updates!
+title PlutoniumT5 - %name% - Server restarter
+echo Visit plutonium.pw / Join the Discord (a6JM2Tv) for NEWS and Updates!
 echo Server "%name%" will load %cfg% and listen on port %port% UDP!
 echo To shut down the server close this window first!
 echo (%date%)  -  (%time%) %name% server start.
+
+cd /D %LOCALAPPDATA%\Plutonium
 :server
-start /wait /abovenormal t5m.exe -mp -console +set dedicated 2 +set net_port %port% +set fs_game "%mod%" +exec %cfg% +map %map%
+start /wait /abovenormal bin\plutonium-bootstrapper-win32.exe t5mp "%gamepath%" -dedicated +set key %key% +sv_config %cfg% +net_port %port%
 echo (%date%)  -  (%time%) WARNING: %name% server closed or dropped... server restarts.
 goto server
