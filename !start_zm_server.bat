@@ -7,6 +7,8 @@ set cfg=dedicated_sp.cfg
 set name=T5 Zombies 1
 ::Port used by the server (default: 28960)
 set port=28961
+::Maximum players that can enter server.
+set maxclients=4
 ::Mod name (default "")
 set mod=""
 ::Only change this when you don't want to keep the bat files in the game folder. MOST WON'T NEED TO EDIT THIS!
@@ -20,6 +22,6 @@ echo (%date%)  -  (%time%) %name% server start.
 
 cd /D %LOCALAPPDATA%\Plutonium
 :server
-start /wait /abovenormal bin\plutonium-bootstrapper-win32.exe t5sp "%gamepath%" -dedicated +set key %key% +set fs_game %mod% +exec %cfg% +set net_port %port% +start_map_rotate
+start /wait /abovenormal bin\plutonium-bootstrapper-win32.exe t5sp "%gamepath%" -dedicated +set key %key% +set fs_game "%mod%" +exec "%cfg%" +set net_port %port% +set sv_maxclients %maxclients% +start_map_rotate
 echo (%date%)  -  (%time%) WARNING: %name% server closed or dropped... server restarts.
 goto server
