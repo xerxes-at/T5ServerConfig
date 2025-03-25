@@ -10,7 +10,7 @@ set port=28960
 ::Maximum players that can enter server.
 set maxclients=18
 ::Mod name (default "")
-set mod=""
+set mod=
 ::Only change this when you don't want to keep the bat files in the game folder. MOST WON'T NEED TO EDIT THIS!
 set gamepath=%cd%
 
